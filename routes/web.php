@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Conrollers\HomeController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +14,26 @@ use App\Http\Conrollers\HomeController;
 |
 */
 //1- Do something in the route
-Route::get('/', function () {
+Route::get('/hello', function () {
+    return 'Hello World';
+});
+
+//2- Call view in route
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
+//3- Call Controller Function
+Route::get('/',[HomeController::class,'index'])->name('home');
+
+//4- Route-> Controller->View
+//Route::get('/test',[HomeController::class,'test'])->name('home');
+
+//5- Route with parameters
+//Route::get('/param/{id}/{number}', [HomeController::class,'param'])->name('test');
+
+//6- Route with post
+//Route::post('/save', [HomeController::class,'save'])->name('save');
 
 Route::middleware([
     'auth:sanctum',
