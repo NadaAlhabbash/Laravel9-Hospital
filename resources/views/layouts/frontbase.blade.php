@@ -10,27 +10,28 @@
 
     <title>@yield("title")</title>
 
-    <link rel="stylesheet" href="../assets/css/maicons.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/maicons.css">
 
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/bootstrap.css">
 
-    <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/vendor/owl-carousel/css/owl.carousel.css">
 
-    <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/vendor/animate/animate.css">
 
-    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/theme.css">
     @yield("head")
 </head>
 <body>
+
 <div class="back-to-top"></div>
 @include("home.header")
 @include("home.slider")
 @section('sidebar')
 
     @show
-<div class="container">
+
     @yield('content')
-</div>
+
 
 @include("home.footer")
 @yield('foot')

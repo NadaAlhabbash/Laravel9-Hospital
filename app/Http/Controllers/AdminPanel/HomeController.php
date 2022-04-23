@@ -9,6 +9,6 @@ class HomeController extends Controller
 {
     public function index  ()
     {
-        echo "my admin";
+       return view("admin.index");
     }
 }
