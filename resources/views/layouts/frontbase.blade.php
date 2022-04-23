@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/css/theme.css">
     @yield("head")
 </head>
-<body>
+<body >
 
 <div class="back-to-top"></div>
 @include("home.header")
