@@ -10,49 +10,41 @@
                      <div class="card">
                          <div class="card-body">
                              <h4 class="card-title">Category List</h4>
-                             <p class="card-description"> Add class <code>.table</code>
+                             <p class="card-description">
+                                 <a href="/admin/category/create" class="text-success">Add Category</a>
                              </p>
                              <div class="table-responsive">
                                  <table class="table">
                                      <thead>
                                      <tr>
-                                         <th>Profile</th>
-                                         <th>VatNo.</th>
-                                         <th>Created</th>
+                                         <th>ID</th>
+                                         <th>Title</th>
+                                         <th>Keywords</th>
+                                         <th>Discription</th>
+                                         <th>Image</th>
                                          <th>Status</th>
+                                         <th>Edit</th>
+                                         <th>Show</th>
+                                         <th>Delete</th>
+
                                      </tr>
                                      </thead>
                                      <tbody>
+                                     @foreach($data as $rs)
                                      <tr>
-                                         <td>Jacob</td>
-                                         <td>53275531</td>
-                                         <td>12 May 2017</td>
-                                         <td><label class="badge badge-danger">Pending</label></td>
+                                         <td>{{$rs->id}}</td>
+                                         <td>{{$rs->title}}</td>
+                                         <td>{{$rs->keywords}}</td>
+                                         <td>{{$rs->description}}</td>
+                                         <td>{{$rs->image}}</td>
+                                         <td>{{$rs->status}}</td>
+                                         <td><a class="btn btn-primary btn-rounded" href="/admin/category/edit/{{$rs->id}}/">Edit</a> </td>
+                                         <td><a class="btn btn-warning btn-rounded" href="/admin/category/show/{{$rs->id}}/">Show</a> </td>
+                                         <td><a href="/admin/category/delete/{{$rs->id}}"class="btn btn-danger btn-rounded "
+                                                onclick="return confirm('Deleting !! Are you sure?')">Delete</a> </td>
+
                                      </tr>
-                                     <tr>
-                                         <td>Messsy</td>
-                                         <td>53275532</td>
-                                         <td>15 May 2017</td>
-                                         <td><label class="badge badge-warning">In progress</label></td>
-                                     </tr>
-                                     <tr>
-                                         <td>John</td>
-                                         <td>53275533</td>
-                                         <td>14 May 2017</td>
-                                         <td><label class="badge badge-info">Fixed</label></td>
-                                     </tr>
-                                     <tr>
-                                         <td>Peter</td>
-                                         <td>53275534</td>
-                                         <td>16 May 2017</td>
-                                         <td><label class="badge badge-success">Completed</label></td>
-                                     </tr>
-                                     <tr>
-                                         <td>Dave</td>
-                                         <td>53275535</td>
-                                         <td>20 May 2017</td>
-                                         <td><label class="badge badge-warning">In progress</label></td>
-                                     </tr>
+                                     @endforeach
                                      </tbody>
                                  </table>
                              </div>
