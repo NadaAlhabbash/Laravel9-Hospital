@@ -11,9 +11,9 @@
                          <h3 class="page-title"> Edit Category : {{$data->title}} </h3>
                          <nav aria-label="breadcrumb">
                              <ol class="breadcrumb">
-                                 <li class="breadcrumb-item"><a href="/admin/category">Category</a></li>
+                                 <li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Category</a></li>
 
-                                 <li class="breadcrumb-item active"  aria-current="page"><a href="/admin">Home</a></li>
+                                 <li class="breadcrumb-item active"  aria-current="page"><a href="{{route('admin.index')}}">Home</a></li>
                              </ol>
                          </nav>
                      </div>
@@ -21,13 +21,26 @@
                          <div class="card-body">
                              <h4 class="card-title">Category Elements </h4>
                             <p class="card-description text-small">
-                                <a class="text-small text-info" href="/admin/category/create">Add Category</a>
-                                <a class="text-danger text-small" style="padding-left:10px " href="/admin/category/delete/{{$data->id}}"
+                                <a class="text-small text-info" href="{{route('admin.category.create')}}">Add Category</a>
+                                <a class="text-danger text-small" style="padding-left:10px " href="{{route('admin.category.delete',['id'=>$data->id])}}"
                                    onclick="return confirm('Deleting !! Are you sure?')">Delete</a>
 
                             </p>
-                             <form class="forms-sample" action="/admin/category/update/{{$data->id}}" method="post">
+                             <form class="forms-sample" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                  @csrf
+
+                                 <div class="form-group">
+                                     <label>Parent Category</label>
+                                     <select class="form-control select2" name="parent_id" >
+                                         <option value="0" selected="selected">Main Category</option>
+                                         @foreach($datalist as $rs)
+                                             <option value="{{$rs->id}}" @if
+                                                 ($rs->id == $data->parent_id) selected="selected" @endif>
+                                                 {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title)}}</option>
+                                         @endforeach
+                                     </select>
+                                 </div>
+
                                  <div class="form-group">
                                      <label for="exampleInputName1">Title</label>
                                      <input type="text" class="form-control text-light " name="title" value="{{$data->title}}">
@@ -55,7 +68,7 @@
                                  <div class="form-group " >
                                      <label for="exampleInputName1">Image</label>
                                      <div class="file-upload-info ">
-                                         <input class="input-group-append" type="file" name="file" >
+                                         <input class="input-group-append" type="file" name="image" >
                                      </div>
                                  </div>
 
@@ -66,6 +79,8 @@
                      </div>
 
                  </div>
+            @include("admin.footer")
+            @yield('foot')
 
         </div>
     </div>

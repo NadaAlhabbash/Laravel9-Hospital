@@ -11,8 +11,8 @@
                          <h3 class="page-title"> Add Category </h3>
                          <nav aria-label="breadcrumb">
                              <ol class="breadcrumb">
-                                 <li class="breadcrumb-item"><a href="/admin/category">Category</a></li>
-                                 <li class="breadcrumb-item active" aria-current="page"><a href="/admin">Home</a></li>
+                                 <li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Category</a></li>
+                                 <li class="breadcrumb-item active" aria-current="page"><a href="{{route('admin.index')}}">Home</a></li>
                              </ol>
                          </nav>
                      </div>
@@ -20,8 +20,19 @@
                          <div class="card-body">
                              <h4 class="card-title">Category Elements</h4>
 
-                             <form class="forms-sample" action="/admin/category/store" method="post">
+                             <form class="forms-sample" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                                  @csrf
+
+                                 <div class="form-group">
+                                     <label>Parent Category</label>
+                                     <select class="form-control select2" name="parent_id" >
+                                         <option value="0" selected="selected">Main Category</option>
+                                         @foreach($data as $rs)
+                                             <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title)}}</option>
+                                         @endforeach
+                                     </select>
+                                 </div>
+
                                  <div class="form-group">
                                      <label for="exampleInputName1">Title</label>
                                      <input type="text" class="form-control text-light " name="title" placeholder="Title">
@@ -49,17 +60,27 @@
                                  <div class="form-group " >
                                      <label for="exampleInputName1">Image</label>
                                      <div class="file-upload-info ">
-                                         <input class="input-group-append" type="file" name="file" >
+                                         <input class="input-group-append" type="file" name="image" >
                                      </div>
                                  </div>
 
+{{--                                 <div class="form-group">--}}
+{{--                                     <label for="exampleInputFile">Image</label>--}}
+{{--                                     <div class="custom-file">--}}
+{{--                                         <label class="custom-file-label" for="exampleInputFile">Choose File Image</label>--}}
+{{--                                         <input type="file" class="custom-file-input" name="image">--}}
+{{--                                     </div>--}}
+{{--                                 </div>--}}
+
                                  <button type="submit" class="btn btn-primary me-2">Submit</button>
-                                 <button class="btn btn-dark" ><a class="text-gray" href="/admin" >Cancel</a></button>
+                                 <button class="btn btn-dark" ><a class="text-gray" href="{{route('admin.index')}}" >Cancel</a></button>
                              </form>
                          </div>
                      </div>
 
                  </div>
+            @include("admin.footer")
+            @yield('foot')
 
         </div>
     </div>

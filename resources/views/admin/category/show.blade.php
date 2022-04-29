@@ -11,15 +11,24 @@
                          <h3 class="page-title"> Show Category : {{$data->title}} </h3>
                          <nav aria-label="breadcrumb">
                              <ol class="breadcrumb">
-                                 <li class="breadcrumb-item"><a href="/admin/category">Category</a></li>
+                                 <li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Category</a></li>
 
-                                 <li class="breadcrumb-item active"  aria-current="page"><a href="/admin">Home</a></li>
+                                 <li class="breadcrumb-item active"  aria-current="page"><a href="{{route('admin.index')}}">Home</a></li>
                              </ol>
                          </nav>
                      </div>
                      <div class="card">
+
                          <div class="card-body">
+
                              <h4 class="card-title">Details</h4>
+                             <p class="card-description ">
+                                 <a class="text-small text-success" href="{{route('admin.category.edit',['id'=>$data->id])}}">Edit Category</a>
+                                 <a class="text-small text-info" style="padding-left:10px " href="{{route('admin.category.create')}}">Add Category</a>
+                                 <a class="text-danger text-small" style="padding-left:10px " href="{{route('admin.category.delete',['id'=>$data->id])}}"
+                                    onclick="return confirm('Deleting !! Are you sure?')">Delete</a>
+
+                             </p>
                              <div class="table-responsive">
                                  <table class="table table-bordered table-contextual">
                                      <tbody>
@@ -41,7 +50,11 @@
                                      </tr>
                                      <tr class="table-primary">
                                          <td> Image </td>
-                                         <td> {{$data->image}} </td>
+                                         <td>
+                                             @if ($data->image)
+                                                 <img src="{{Storage::url($data->image)}}" style="height: 50px" >
+                                             @endif
+                                         </td>
                                      </tr>
                                      <tr class="table-secondary">
                                          <td> Status </td>
@@ -59,15 +72,15 @@
                                  </table>
 
                              </div>
-                             <a class="text-danger card-description" style="padding-left:1070px " href="/admin/category/delete/{{$data->id}}"
-                                onclick="return confirm('Deleting !! Are you sure?')">Delete</a>
 
-                             <a class="card-description" href="/admin/category/create">Add Category</a>
 
                          </div>
                      </div>
 
                  </div>
+            @include("admin.footer")
+            @yield('foot')
+
 
         </div>
     </div>

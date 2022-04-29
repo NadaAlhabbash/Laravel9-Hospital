@@ -646,7 +646,10 @@
             </div>
         </div>
     </div>
-    </div>
+            @include("admin.footer")
+            @yield('foot')
+
+        </div>
 
     </div>
 
