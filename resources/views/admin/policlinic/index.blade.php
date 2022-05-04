@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Category List')
+@section('title', 'Policlinic List')
 
 
 @section('content')
@@ -17,17 +17,19 @@
                      </div>
                      <div class="card">
                          <div class="card-body">
-                             <h4 class="card-title">Category List</h4>
+                             <h4 class="card-title">Policlinic List</h4>
                              <p class="card-description">
-                                 <a href="{{route('admin.category.create')}}" class="text-success">Add Category</a>
+                                 <a href="{{route('admin.policlinic.create')}}" class="text-success">Add Policlinic</a>
                              </p>
                              <div class="table-responsive">
                                  <table class="table">
                                      <thead>
                                      <tr>
                                          <th style="width:10px">ID</th>
-                                         <th>Parent</th>
+                                         <th>Category</th>
                                          <th>Title</th>
+                                         <th>Specialization</th>
+                                         <th>Location</th>
                                          <th>Image</th>
                                          <th>Status</th>
                                          <th style="width:10px">Edit</th>
@@ -42,15 +44,17 @@
                                          <td>{{$rs->id}}</td>
                                          <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title)}}</td>
                                          <td>{{$rs->title}}</td>
+                                         <td>{{$rs->specialization}}</td>
+                                         <td>{{$rs->location}}</td>
                                          <td>
                                              @if ($rs->image)
                                                  <img src="{{Storage::url($rs->image)}}" style="height: 40px" >
                                                  @endif
                                          </td>
                                          <td>{{$rs->status}}</td>
-                                         <td><a class="btn btn-primary btn-rounded" href="{{route('admin.category.edit',['id'=>$rs->id])}}">Edit</a> </td>
-                                         <td><a class="btn btn-warning btn-rounded" href="{{route('admin.category.show',['id'=>$rs->id])}}">Show</a> </td>
-                                         <td><a class="btn btn-danger btn-rounded " href="{{route('admin.category.delete',['id'=>$rs->id])}}"
+                                         <td><a class="btn btn-primary btn-rounded" href="{{route('admin.policlinic.edit',['id'=>$rs->id])}}">Edit</a> </td>
+                                         <td><a class="btn btn-warning btn-rounded" href="{{route('admin.policlinic.show',['id'=>$rs->id])}}">Show</a> </td>
+                                         <td><a class="btn btn-danger btn-rounded " href="{{route('admin.policlinic.delete',['id'=>$rs->id])}}"
                                                 onclick="return confirm('Deleting !! Are you sure?')">Delete</a> </td>
 
                                      </tr>

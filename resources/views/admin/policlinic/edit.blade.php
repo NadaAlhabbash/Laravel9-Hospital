@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Edit Category :'.$data->title)
+@section('title', 'Edit Policlinic :'.$data->title)
 
 
 @section('content')
@@ -8,10 +8,10 @@
         <div class="main-panel">
                  <div class="content-wrapper">
                      <div class="page-header">
-                         <h3 class="page-title"> Edit Category : {{$data->title}} </h3>
+                         <h3 class="page-title"> Edit Policlinic : {{$data->title}} </h3>
                          <nav aria-label="breadcrumb">
                              <ol class="breadcrumb">
-                                 <li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Category</a></li>
+                                 <li class="breadcrumb-item"><a href="{{route('admin.policlinic.index')}}">Policilinic</a></li>
 
                                  <li class="breadcrumb-item active"  aria-current="page"><a href="{{route('admin.index')}}">Home</a></li>
                              </ol>
@@ -19,21 +19,22 @@
                      </div>
                      <div class="card">
                          <div class="card-body">
-                             <h4 class="card-title">Category Elements </h4>
+                             <h4 class="card-title">Policlinic Elements </h4>
                             <p class="card-description text-small">
-                                <a class="text-small text-info" href="{{route('admin.category.create')}}">Add Category</a>
-                                <a class="text-danger text-small" style="padding-left:10px " href="{{route('admin.category.delete',['id'=>$data->id])}}"
+                                <a class="text-small text-info" href="{{route('admin.policlinic.create')}}">Add Policlinic</a>
+                                <a class="text-danger text-small" style="padding-left:10px " href="{{route('admin.policlinic.delete',['id'=>$data->id])}}"
                                    onclick="return confirm('Deleting !! Are you sure?')">Delete</a>
 
                             </p>
-                             <form class="forms-sample" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                             <form class="forms-sample" action="{{route('admin.policlinic.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                  @csrf
 
                                  <div class="form-group">
                                      <label>Parent Category</label>
-                                     <select class="form-control select2" name="parent_id" >
+                                     <select class="form-control select2" name="category_id" >
+                                         <option value="0" selected="selected">Main Category</option>
                                          @foreach($datalist as $rs)
-                                             <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif>
+                                             <option value="{{$rs->id}}" @if ($rs->id == $data->category_id) selected="selected" @endif>
                                                  {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title)}}</option>
                                          @endforeach
                                      </select>
@@ -53,6 +54,23 @@
                                      <label for="exampleInputName1">Description</label>
                                      <input type="text" class="form-control text-light" name="description" value="{{$data->description}}">
                                  </div>
+
+                                 <div class="form-group">
+                                     <label for="exampleInputName1">Detail</label>
+                                     <textarea class="form-control text-light" name="detail">{{$data->detail}}
+                                     </textarea>
+                                 </div>
+
+                                 <div class="form-group">
+                                     <label for="exampleInputName1">Specialization</label>
+                                     <input type="text" class="form-control text-light" name="specialization" value="{{$data->specialization}}">
+                                 </div>
+
+                                 <div class="form-group">
+                                     <label for="exampleInputName1">Location</label>
+                                     <input type="text" class="form-control text-light" name="location" value="{{$data->location}}">
+                                 </div>
+
 
                                  <div class="form-group">
                                      <label >Status</label>
