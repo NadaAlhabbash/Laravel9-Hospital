@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Policlinic extends Model
 {
     use HasFactory;
+    #Many To One
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
