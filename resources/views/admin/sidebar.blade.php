@@ -58,11 +58,11 @@
             <span class="nav-link">Navigation</span>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{route('admin.category.create')}}">
+            <a class="nav-link" href="{{route('admin.index')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-home"></i>
               </span>
-                <span class="menu-title">Add Category</span>
+                <span class="menu-title">Home</span>
             </a>
         </li>
         <li class="nav-item menu-items">

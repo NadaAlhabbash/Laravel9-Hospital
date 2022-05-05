@@ -31,6 +31,7 @@
                                          <th>Specialization</th>
                                          <th>Location</th>
                                          <th>Image</th>
+                                         <th>Image Gallery</th>
                                          <th>Status</th>
                                          <th style="width:10px">Edit</th>
                                          <th style="width:10px">Show</th>
@@ -50,6 +51,11 @@
                                              @if ($rs->image)
                                                  <img src="{{Storage::url($rs->image)}}" style="height: 40px" >
                                                  @endif
+                                         </td>
+                                         <td> <a href="{{route('admin.image.index',['pid'=>$rs->id])}}"
+                                             onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+                                            <img src="{{asset('adminasset')}}/images/image.png">
+                                             </a>
                                          </td>
                                          <td>{{$rs->status}}</td>
                                          <td><a class="btn btn-primary btn-rounded" href="{{route('admin.policlinic.edit',['id'=>$rs->id])}}">Edit</a> </td>

@@ -84,7 +84,7 @@
                                      </tr>
                                      <tr >
                                          <th> Updated Date </th>
-                                         <th> {{$data->updated_at}} </th>
+                                         <td> {{$data->updated_at}} </td>
                                      </tr>
                                      </tbody>
                                  </table>
