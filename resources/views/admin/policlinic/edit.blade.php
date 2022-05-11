@@ -1,8 +1,11 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Edit Policlinic :'.$data->title)
-
-
+@section('head')
+<!--include summernote css/js-->
+    <link href="http://cdn.jsdeliver.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="http://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
@@ -55,10 +58,21 @@
                                      <input type="text" class="form-control text-light" name="description" value="{{$data->description}}">
                                  </div>
 
-                                 <div class="form-group">
+                                 <div class="form-group" >
                                      <label for="exampleInputName1">Detail</label>
-                                     <textarea class="form-control text-light" name="detail">{{$data->detail}}
+                                     <textarea class="form-control text-dark" id="detail" name="detail" >
+                                         {!! $data->detail !!}
                                      </textarea>
+                                     <script style="color:black ">
+                                         ClassicEditor
+                                             .create(document.querySelector('#detail'))
+                                             .then(editor=>{
+                                                 console.log(editor);
+                                             })
+                                             .catch(error=>{
+                                                 console.error(error);
+                                             });
+                                     </script>
                                  </div>
 
                                  <div class="form-group">
@@ -97,7 +111,14 @@
                  </div>
             @include("admin.footer")
             @yield('foot')
+            <script src="http://cdn.jsdeliver.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+            <script>
+                $(function(){
+                    // Summernote
+                    $('.textarea').summernote()
+                })
+            </script>
         </div>
     </div>
 

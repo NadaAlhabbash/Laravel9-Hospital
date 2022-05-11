@@ -1,7 +1,9 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
-
+@section('title', 'Add Pliclinic')
+@section('head')
+    <script src="http://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 
 @section('content')
     <div class="container-fluid page-body-wrapper">
@@ -49,9 +51,19 @@
 
                                  <div class="form-group">
                                      <label for="exampleInputName1">Detail</label>
-                                     <textarea class="form-control text-light" name="detail">
+                                     <textarea class="form-control text-light" id="detail" name="detail">
 
                                      </textarea>
+                                     <script>
+                                         ClassicEditor
+                                            .create(document.querySelector('#detail'))
+                                            .then(editor=>{
+                                                console.log(editor);
+                                            })
+                                            .catch(error=>{
+                                                console.error(error);
+                                            });
+                                     </script>
                                  </div>
 
                                  <div class="form-group">
