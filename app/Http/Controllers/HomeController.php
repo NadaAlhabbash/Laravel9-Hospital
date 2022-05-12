@@ -17,8 +17,10 @@ class HomeController extends Controller
 
         $sliderdata=Policlinic::limit(4)->get();
 //        dd($sliderdata);
+        $policlinicList=Policlinic::limit(6)->get();
         return view('home.index', [
-            'sliderdata'=>$sliderdata
+            'sliderdata'=>$sliderdata,
+            'policlinicList'=>$policlinicList
         ]);
     }
 
