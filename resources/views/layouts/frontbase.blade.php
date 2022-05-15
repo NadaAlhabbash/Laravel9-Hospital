@@ -25,8 +25,11 @@
 
 <div class="back-to-top"></div>
 @include("home.header")
-@include("home.sidebar")
-@section('slider')
+
+@section('sidebar')
+@show
+    @section('slider')
+
 
     @show
 

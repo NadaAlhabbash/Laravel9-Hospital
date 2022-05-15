@@ -38,6 +38,9 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 //6- Route with post
 //Route::post('/save', [HomeController::class,'save'])->name('save');
 
+Route::get('/policlinic/{id}', [HomeController::class,'policlinic'])->name('policlinic');
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

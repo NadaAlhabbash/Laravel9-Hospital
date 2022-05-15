@@ -5,9 +5,11 @@
  @section('sidebar')
      @include('home.sidebar')
  @endsection
+
 @section('slider')
 @include('home.slider')
 @endsection
+
 @section('content')
 
 
@@ -43,7 +45,7 @@
                 @endforeach
 
                 <div class="col-12 text-center mt-4 wow zoomIn">
-                    <a href="blog.html" class="btn btn-primary">Read More</a>
+                    <a href="blog.html" class="btn btn-primary">Show More</a>
                 </div>
 
             </div>
