@@ -24,12 +24,12 @@
 {{--                            <div class="post-category">--}}
 {{--                                <a href="#">Covid19</a>--}}
 {{--                            </div>--}}
-                            <a href="#" class="post-thumb">
+                            <a href="{{route('policlinic',['id'=>$rs->id])}}" class="post-thumb">
                                 <img src="{{Storage::url($rs->image)}}" alt="">
                             </a>
                         </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="#">{{$rs->title}}</a></h5>
+                            <h5 class="post-title"><a href="{{route('policlinic',['id'=>$rs->id])}}">{{$rs->title}}</a></h5>
                             <div class="site-info">
                                 <div class="avatar mr-2">
                                     <div class="avatar-img">

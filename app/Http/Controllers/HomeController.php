@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\user;
-
+use Illuminate\Support\Facades\DB;
 
 
 class HomeController extends Controller
@@ -26,11 +26,11 @@ class HomeController extends Controller
 
     public function policlinic($id)
     {
-
+        $images=DB::table('images')->where('policlinic_id', $id)->get();
         $data=Policlinic::find($id);
         return view('home.policlinic', [
-            'data'=>$data
-
+            'data'=>$data,
+            'images'=>$images
         ]);
     }
 

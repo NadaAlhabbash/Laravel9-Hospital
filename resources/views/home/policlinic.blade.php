@@ -18,34 +18,62 @@
                     </nav>
                 </div>
             </div> <!-- .row -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
 
-            <div class="row">
-                <div class="col-lg-8">
-                    <article class="blog-details">
-                        <div class="post-thumb">
-                            <img src="{{Storage::url($data->image)}}" style="width: 800px; height: 500px" alt="">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="{{Storage::url($data->image)}}" style="width: 800px; height: 500px" alt="">
+                        </div>
+                        @foreach($images as $rs)
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{Storage::url($data->image)}}" style="width: 800px; height: 500px" alt="">
+                        </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
 
-                        </div>
-                        <div class="post-meta">
-                            <div class="post-author">
-                                <span class="text-grey">By</span> <a href="#">Admin</a>
-                            </div>
-                            <span class="divider">|</span>
-                            <div class="post-date">
-                                <a href="#">22 Jan, 2018</a>
-                            </div>
-                            <span class="divider">|</span>
-                            <div>
-                                <a href="#">StreetStyle</a>, <a href="#">Fashion</a>, <a href="#">Couple</a>
-                            </div>
-                            <span class="divider">|</span>
-                            <div class="post-comment-count">
-                                <a href="#">8 Comments</a>
-                            </div>
-                        </div>
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-8">--}}
+{{--                    <article class="blog-details">--}}
+{{--                        <div class="post-thumb">--}}
+{{--                            <img src="{{Storage::url($data->image)}}" style="width: 800px; height: 500px" alt="">--}}
+{{--                        </div>--}}
+{{--                        --}}
+{{--                        <div class="post-meta">--}}
+{{--                            <div class="post-author">--}}
+{{--                                <span class="text-grey">By</span> <a href="#">Admin</a>--}}
+{{--                            </div>--}}
+{{--                            <span class="divider">|</span>--}}
+{{--                            <div class="post-date">--}}
+{{--                                <a href="#">22 Jan, 2018</a>--}}
+{{--                            </div>--}}
+{{--                            <span class="divider">|</span>--}}
+{{--                            <div>--}}
+{{--                                <a href="#">StreetStyle</a>, <a href="#">Fashion</a>, <a href="#">Couple</a>--}}
+{{--                            </div>--}}
+{{--                            <span class="divider">|</span>--}}
+{{--                            <div class="post-comment-count">--}}
+{{--                                <a href="#">8 Comments</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <h2 class="post-title h1">{{$data->title}}</h2>
                         <div class="post-content">
                             <p>{{$data->description}}</p>
+                            <p>{!! $data->detail !!}</p>
 
                         </div>
 
