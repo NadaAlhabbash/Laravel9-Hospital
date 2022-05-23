@@ -39,6 +39,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 //Route::post('/save', [HomeController::class,'save'])->name('save');
 
 Route::get('/policlinic/{id}', [HomeController::class,'policlinic'])->name('policlinic');
+Route::get('/categorypoliclinic/{id}/{slug}', [HomeController::class,'categorypoliclinic'])->name('categorypoliclinic');
 
 
 Route::middleware([

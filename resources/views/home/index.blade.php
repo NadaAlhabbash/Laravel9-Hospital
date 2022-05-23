@@ -10,6 +10,7 @@
 @include('home.slider')
 @endsection
 
+
 @section('content')
 
 

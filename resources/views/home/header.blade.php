@@ -23,6 +23,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
+            @php
+            $mainCategories=\App\Http\Controllers\HomeController::maincategorylist()
+            @endphp
             <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
 
             <form action="#">
@@ -43,6 +46,27 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
+
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Category
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @foreach($mainCategories as $rs)
+                                <a class="dropdown-item" href="#">{{$rs->title}}</a>
+                                        @if(count($rs->children))
+                                            @include('home.categorytree',['children'=>$rs->children])
+                                        @endif
+                            @endforeach
+                        </div>
+{{--                        @if(count($rs->children))--}}
+{{--                            @include('home.categorytree',['children'=>$rs->children])--}}
+{{--                        @endif--}}
+                    </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About Us</a>
                     </li>
@@ -55,11 +79,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="btn btn-primary ml-lg-3" href="#">Login / Register</a>
                     </li>
+
                 </ul>
             </div> <!-- .navbar-collapse -->
         </div> <!-- .container -->
     </nav>
+
+
+
+
 </header>

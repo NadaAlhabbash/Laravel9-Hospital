@@ -13,4 +13,17 @@ use Illuminate\Database\Eloquent\Model;
         {
             return $this->hasMany(Policlinic::class);
         }
+
+        #One To Many Inverse
+        public function parent()
+        {
+            return $this->belongsTo(Category::class,'parent_id');
+        }
+
+        #One To Many
+        public function children()
+        {
+            return $this->hasMany(Category::class,'parent_id');
+        }
+
     }

@@ -26,10 +26,11 @@
 <div class="back-to-top"></div>
 @include("home.header")
 
+
+
 @section('sidebar')
 @show
     @section('slider')
-
 
     @show
 
