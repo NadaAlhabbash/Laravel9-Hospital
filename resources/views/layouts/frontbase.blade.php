@@ -9,6 +9,10 @@
     <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
     <title>@yield("title")</title>
+    <meta name="description" content="@yield("description")">
+    <meta name="keywords" content="@yield("keywords")">
+    <meta name="author" content="Nada Alhabbash">
+    <link rel="icon" type="image/x-icon" href="@yield("icon")">
 
     <link rel="stylesheet" href="{{asset('assets')}}/css/maicons.css">
 

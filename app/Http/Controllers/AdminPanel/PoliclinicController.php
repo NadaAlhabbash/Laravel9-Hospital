@@ -135,6 +135,7 @@ class PoliclinicController extends Controller
         }
         $data->delete();
         return redirect(route('admin.policlinic.index'));
-
     }
+
+
 }
