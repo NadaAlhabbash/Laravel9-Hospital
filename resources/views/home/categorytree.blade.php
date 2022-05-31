@@ -4,7 +4,7 @@
             <li style="color: #1D00AF; font-family: 'Arial Black'">{{$subcategory->title}}</li>
             <ul class=""dropdown-menu">
                 @include('home.categorytree',['$children'=>$subcategory->$children])
-            </ul>
+             </ul>
             <hr>
         @else
         <li><a href="{{route('categorypoliclinic',['id'=>$subcategory->id, 'slug'=>$subcategory->title])}}">{{$subcategory->title}}</a></li>

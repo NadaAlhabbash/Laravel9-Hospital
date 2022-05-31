@@ -70,8 +70,8 @@ class HomeController extends Controller
     public function categorypoliclinic($id)
     {
 
-        $category=Policlinic::find($id);
-        $policlinic=DB::table('policlinic')->where('category_id', $id)->get();
+        $category=Category::find($id);
+        $policlinic=DB::table('policlinics')->where('category_id', $id)->get();
         return view('home.categorypoliclinic', [
             'category'=>$category,
             'policlinic'=>$policlinic

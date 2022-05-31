@@ -51,7 +51,7 @@
                                 <textarea name="msg" id="message" cols="30" rows="8" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Post Comment" class="btn btn-primary">
+                                <input type="submit" value="Send Message" class="btn btn-primary">
                             </div>
 
                         </form>
@@ -61,7 +61,7 @@
                     <div class="sidebar">
                         <div class="sidebar-block">
                             <h3 class="sidebar-title">Contact Info</h3>
-                            {!! $setting->reference !!}
+                            {!! $setting->contact !!}
                         </div>
 
                     </div>

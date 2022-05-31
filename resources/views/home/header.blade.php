@@ -48,25 +48,11 @@
                     </li>
 
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            @foreach($mainCategories as $rs)
-                                <a class="dropdown-item" href="#">{{$rs->title}}</a>
-                                        @if(count($rs->children))
-                                            @include('home.categorytree',['children'=>$rs->children])
-                                        @endif
-                            @endforeach
 
-                        </div>
-
-                    </li>
 
                     <div class="dropdown nav-item">
                         <a id="dLabel" class="nav-link dropdown-toggle" data-toggle="dropdown"  href="/page.html" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Category
                         </a>
                         <ul class="dropdown-menu multi-level" role="menu" >
                             @foreach($mainCategories as $rs)
