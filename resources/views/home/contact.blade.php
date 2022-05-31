@@ -7,7 +7,6 @@
 @section('icon',Storage::url($setting->icon) )
 
 @section('content')
-
     <div class="page-banner overlay-dark bg-image" style="background-image: url({{asset('assets')}}/img/bg_image_1.jpg);">
         <div class="banner-section">
             <div class="container text-center wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
@@ -21,37 +20,53 @@
             </div> <!-- .container -->
         </div> <!-- .banner-section -->
     </div>
-    <div class="page-section">
+
+    <div class="page-section pt-5">
         <div class="container">
-            <h1 class="text-center wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Contact Form</h1>
 
-            <form class="contact-form mt-5">
-                <div class="row">
-                    <div class="col-lg-8 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                        {!! $setting->contact !!}
+
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <div class="comment-form-wrap pt-5">
+                        <h3 class="mb-5">Contact</h3>
+                        <form action="#" class="">
+                            <div class="form-row form-group">
+                                <div class="col-md-6">
+                                    <label for="name">Name *</label>
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email">Email *</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="website">Subject</label>
+                                <input type="url" class="form-control" id="subject">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea name="msg" id="message" cols="30" rows="8" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Post Comment" class="btn btn-primary">
+                            </div>
+
+                        </form>
                     </div>
                 </div>
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="sidebar-block">
+                            <h3 class="sidebar-title">Contact Info</h3>
+                            {!! $setting->reference !!}
+                        </div>
 
-                <div class="row mb-3">
-                    <div class="col-sm-6 py-2 wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
-                        <label for="fullName">Name</label>
-                        <input type="text" id="fullName" class="form-control" placeholder="Full name..">
-                    </div>
-                    <div class="col-sm-6 py-2 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
-                        <label for="emailAddress">Email</label>
-                        <input type="text" id="emailAddress" class="form-control" placeholder="Email address..">
-                    </div>
-                    <div class="col-12 py-2 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" class="form-control" placeholder="Enter subject..">
-                    </div>
-                    <div class="col-12 py-2 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                        <label for="message">Message</label>
-                        <textarea id="message" class="form-control" rows="8" placeholder="Enter Message.."></textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary wow zoomIn" style="visibility: visible; animation-name: zoomIn;">Send Message</button>
-            </form>
-        </div>
+            </div> <!-- .row -->
+        </div> <!-- .container -->
     </div>
 @endsection
