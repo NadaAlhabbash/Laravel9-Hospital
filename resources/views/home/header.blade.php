@@ -44,7 +44,7 @@
             <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="{{route('home')}}">Home</a>
                     </li>
 
 
@@ -59,24 +59,44 @@
                                             @include('home.categorytree',['children'=>$rs->children])
                                         @endif
                             @endforeach
+
                         </div>
-{{--                        @if(count($rs->children))--}}
-{{--                            @include('home.categorytree',['children'=>$rs->children])--}}
-{{--                        @endif--}}
+
                     </li>
 
+                    <div class="dropdown nav-item">
+                        <a id="dLabel" class="nav-link dropdown-toggle" data-toggle="dropdown"  href="/page.html" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu multi-level" role="menu" >
+                            @foreach($mainCategories as $rs)
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="#" >{{$rs->title}} </a>
+                                <ul class="dropdown-menu">
+{{--                                    <li><a tabindex="-1" href="#">Second level</a></li>--}}
+                                    @if(count($rs->children))
+                                        @include('home.categorytree',['children'=>$rs->children])
+                                    @endif
+                                </ul>
+                            </li>
+                            @endforeach
+
+                        </ul>
+                        @if(count($rs->children))
+                            @include('home.categorytree',['children'=>$rs->children])
+                        @endif
+                    </div>
+
+
 
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="{{route('about')}}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="doctors.html">Doctors</a>
+                        <a class="nav-link" href="{{route('reference')}}">References</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="{{route('contact')}}">Contact</a>
                     </li>
 
                     <li class="nav-item">

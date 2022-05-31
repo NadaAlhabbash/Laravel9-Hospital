@@ -33,6 +33,30 @@ class HomeController extends Controller
             'policlinicList'=>$policlinicList
         ]);
     }
+    public function about()
+    {
+
+        $setting=Setting::first();
+        return view('home.about', [
+            'setting'=>$setting
+        ]);
+    }
+    public function reference()
+    {
+
+        $setting=Setting::first();
+        return view('home.reference', [
+            'setting'=>$setting
+        ]);
+    }
+    public function contact()
+    {
+
+        $setting=Setting::first();
+        return view('home.contact', [
+            'setting'=>$setting
+        ]);
+    }
 
     public function policlinic($id)
     {
@@ -45,8 +69,7 @@ class HomeController extends Controller
     }
     public function categorypoliclinic($id)
     {
-        echo"Category Policlinic";
-        exit();
+
         $category=Policlinic::find($id);
         $policlinic=DB::table('policlinic')->where('category_id', $id)->get();
         return view('home.categorypoliclinic', [

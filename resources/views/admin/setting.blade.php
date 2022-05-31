@@ -22,15 +22,7 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-{{--                        var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))--}}
-{{--                        triggerTabList.forEach(function (triggerEl) {--}}
-{{--                        var tabTrigger = new bootstrap.Tab(triggerEl)--}}
 
-{{--                        triggerEl.addEventListener('click', function (event) {--}}
-{{--                        event.preventDefault()--}}
-{{--                        tabTrigger.show()--}}
-{{--                        })--}}
-{{--                        })--}}
                         <form class="forms-sample" action="{{route('admin.setting.update')}}" method="post" enctype="multipart/form-data">
                         <nav>
                             @csrf
@@ -124,7 +116,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Facebook</label>
-                                    <input type="text"  name="dacebook" value="{{$data->facebook}}" class="form-control">
+                                    <input type="text"  name="facebook" value="{{$data->facebook}}" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Instagram</label>
@@ -147,7 +139,7 @@
                             </div>
                             <div class="tab-pane fade" id="nav-contactpage" role="tabpanel" aria-labelledby="nav-contactpage-tab">
                                 <div class="form-group">
-                                    <label>Reference</label>
+                                    <label>Contact</label>
                                     <textarea id="contact" name="contact">{{$data->contact}}</textarea>
                                 </div>
                             </div>
