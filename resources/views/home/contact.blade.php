@@ -29,26 +29,32 @@
                 <div class="col-lg-8">
 
                     <div class="comment-form-wrap pt-5">
-                        <h3 class="mb-5">Contact</h3>
-                        <form action="#" class="">
+                        <h1 class="mb-5">Contact</h1>
+                        @include('home.messages')
+                        <form action="{{route("storemessage")}}" class="" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-row form-group">
                                 <div class="col-md-6">
-                                    <label for="name">Name *</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control " name="name">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="email">Email *</label>
-                                    <input type="email" class="form-control" id="email">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="text" class="form-control" name="phone">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" name="email">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="website">Subject</label>
-                                <input type="url" class="form-control" id="subject">
+                                <label for="subject">Subject</label>
+                                <input type="text" class="form-control" name="subject">
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea name="msg" id="message" cols="30" rows="8" class="form-control"></textarea>
+                                <textarea name="message" placeholder="Your Message" name="message" cols="30" rows="8" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Send Message" class="btn btn-primary">
