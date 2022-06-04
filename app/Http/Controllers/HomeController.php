@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Faq;
 use App\Models\Policlinic;
 use App\Models\Setting;
 use App\Models\Message;
@@ -58,6 +59,17 @@ class HomeController extends Controller
             'setting'=>$setting
         ]);
     }
+    public function faq()
+    {
+
+        $setting=Setting::first();
+        $datalist=Faq::all();
+        return view('home.faq', [
+            'setting'=>$setting,
+            'datalist'=>$datalist
+        ]);
+    }
+
     public function storemessage(Request $request)
     {
 //dd($request);

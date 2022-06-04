@@ -55,11 +55,11 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="{{route('admin.faq.index')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-contacts"></i>
+                <i class="mdi mdi-frequently-asked-questions"></i>
               </span>
-                <span class="menu-title">Icons</span>
+                <span class="menu-title">FAQ</span>
             </a>
         </li>
         <li class="nav-item menu-items">

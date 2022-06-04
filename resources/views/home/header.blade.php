@@ -86,6 +86,11 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('faq')}}">FAQ</a>
+                    </li>
+
+
+                    <li class="nav-item">
                         <a class="btn btn-primary ml-lg-3" href="#">Login / Register</a>
                     </li>
 

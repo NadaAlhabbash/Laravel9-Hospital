@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -33,6 +34,7 @@ Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/reference',[HomeController::class,'reference'])->name('reference');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
+Route::get('/faq',[HomeController::class,'faq'])->name('faq');
 
 //4- Route-> Controller->View
 //Route::get('/test',[HomeController::class,'test'])->name('home');
@@ -107,5 +109,17 @@ Route::prefix('admin')->name('admin.')->group(function (){
         Route::get('/show/{id}','show')->name('show');
         Route::post('/update/{id}','update')->name('update');
         Route::get('/delete/{id}','destroy')->name('delete');
+    });
+    //************************ADMIN FAQ ROUTES**********************
+    Route::prefix('/faq')->name('faq.')->controller(FaqController::class)->group(function (){
+
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/delete/{id}','destroy')->name('delete');
+        Route::get('/show/{id}','show')->name('show');
+
     });
 });
