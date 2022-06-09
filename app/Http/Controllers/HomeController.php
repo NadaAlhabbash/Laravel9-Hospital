@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Policlinic;
 use App\Models\Setting;
@@ -82,7 +83,22 @@ class HomeController extends Controller
         $data->ip = $request->ip();
         $data->save();
 
-        return redirect()->route( route: 'contact')->with('info', 'Your message has been sent, Thank you.');
+        return redirect()->route(  'contact')->with('info', 'Your message has been sent, Thank you.');
+    }
+
+    public function storecomment(Request $request)
+    {
+//dd($request);
+        $data = new Comment();
+        $data->user_id =Auth::id(); //logged in user  id
+        $data->policlinic_id = $request->input('policlinic_id');
+        $data->subject = $request->input( 'subject');
+        $data->comment = $request->input( 'comment');
+        $data->rate = $request->input( 'rate');
+        $data->ip = $request->ip();
+        $data->save();
+
+        return redirect()->route(  'policlinic',['id'=> $request->input('product_id')])->with('info', 'Your comment has been sent, Thank you.');
     }
 
     public function policlinic($id)

@@ -39,7 +39,7 @@
                                      @foreach($data as $rs)
                                      <tr>
                                          <td>{{$rs->id}}</td>
-                                         <td>{{$rs->questiion}}</td>
+                                         <td>{{$rs->question}}</td>
                                          <td>{!! $rs->answer !!}</td>
                                          <td>{{$rs->status}}</td>
                                          <td><a class="btn btn-primary btn-rounded" href="{{route('admin.faq.edit',['id'=>$rs->id])}}">Edit</a> </td>

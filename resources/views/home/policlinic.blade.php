@@ -17,7 +17,7 @@
                         </ol>
                     </nav>
                 </div>
-            </div> <!-- .row -->
+            </div>  <!-- .row -->
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -35,6 +35,7 @@
                             <img class="d-block w-100" src="{{Storage::url($data->image)}}" style="width: 800px; height: 500px" alt="">
                         </div>
                         @endforeach
+
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,6 +46,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+
 
 {{--            <div class="row">--}}
 {{--                <div class="col-lg-8">--}}
@@ -74,43 +76,100 @@
                         <div class="post-content">
                             <p>{{$data->description}}</p>
                             <p>{!! $data->detail !!}</p>
-
                         </div>
 
                     </article> <!-- .blog-details -->
 
                     <div class="comment-form-wrap pt-5">
                         <h3 class="mb-5">Leave a comment</h3>
-                        <form action="#" class="">
-                            <div class="form-row form-group">
-                                <div class="col-md-6">
-                                    <label for="name">Name *</label>
-                                    <input type="text" class="form-control" id="name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="email">Email *</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="website">Website</label>
-                                <input type="url" class="form-control" id="website">
-                            </div>
+
+
+                        <form action="{{route('storecomment')}}" class="" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <strong class="text-uppercase" >
+                            <input type="hidden" class="form-control" name="policlinic_id" value="{{$data->id}}" >
 
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea name="msg" id="message" cols="30" rows="8" class="form-control"></textarea>
+                                    <label for="subject">Subject</label>
+                                    <input name="subject" type="text" class="form-control" placeholder="subject">
+                                </div>
                             </div>
+
+
                             <div class="form-group">
-                                <input type="submit" value="Post Comment" class="btn btn-primary">
+                                <label for="comment">Comment</label>
+                                <textarea name="comment" id="message" cols="30" rows="8" class="form-control" placeholder="your comment"></textarea>
                             </div>
+                                <div class="form-group">
+
+{{--                                    <div class="br-theme-css-stars">--}}
+{{--                                        <input type="radio" id="star5" name="rate" value="5"/><label for="star5"></label>--}}
+{{--                                        <input type="radio" id="star4" name="rate" value="4"/><label for="star4"></label>--}}
+{{--                                        <input type="radio" id="star3" name="rate" value="3"/><label for="star3"></label>--}}
+{{--                                        <input type="radio" id="star2" name="rate" value="2"/><label for="star2"></label>--}}
+{{--                                        <input type="radio" id="star1" name="rate" value="1"/><label for="star1"></label>--}}
+{{--                                    </div>--}}
+
+                                    <label for="rate">Rating
+                                        <select class="form-control" name="rate">
+                                            <option >Your rate</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+
+                                    </label>
+                                </div>
+                                </strong>
+
+                            <div class="form-group">
+
+                                <input type="submit" value="Post Comment" class="btn btn-primary">
+
+{{--                                    <a href="/login" class="btn btn-primary">For Submit Your Review, Please Login</a>--}}
+
+                            </div>
+
+
 
                         </form>
+
+
                     </div>
                 </div>
             </div> <!-- .row -->
         </div> <!-- .container -->
     </div> <!-- .page-section -->
+
+{{--    <div class="page-section pt-5">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+
+{{--                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">--}}
+{{--                    <div class="carousel-inner">--}}
+{{--                        <div class="carousel-item active">--}}
+{{--                            <img src="..." class="d-block w-100" alt="...">--}}
+{{--                        </div>--}}
+{{--                        <div class="carousel-item">--}}
+{{--                            <img src="..." class="d-block w-100" alt="...">--}}
+{{--                        </div>--}}
+{{--                        <div class="carousel-item">--}}
+{{--                            <img src="..." class="d-block w-100" alt="...">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">--}}
+{{--                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+{{--                        <span class="sr-only">Previous</span>--}}
+{{--                    </a>--}}
+{{--                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">--}}
+{{--                        <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+{{--                        <span class="sr-only">Next</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <div class="page-section banner-home bg-image" style="background-image: url({{asset('assets')}}/img/banner-pattern.svg);">
         <div class="container py-5 py-lg-0">
