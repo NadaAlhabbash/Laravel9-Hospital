@@ -3,6 +3,9 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+
 @endsection
 
 <header>
@@ -78,7 +81,6 @@
                     </div>
 
 
-
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('about')}}">About</a>
                     </li>
@@ -93,10 +95,23 @@
                         <a class="nav-link" href="{{route('faq')}}">FAQ</a>
                     </li>
 
-
                     <li class="nav-item">
-                        <a class="btn btn-primary ml-lg-3" href="#">Login / Register</a>
+                        @auth()
+                        <div class="align-middle active">
+                            <strong class="text-uppercase "><i class="mai-person ">{{Auth::user()->name}}</i></strong>
+                        </div>
+                            <a class="text-uppercase text-small" href="/logoutuser">Log Out</a>
+                        @endauth
+
+                        @guest
+                           <a class="text-uppercase text-small" href="/loginuser">Login</a>    /<a class="text-uppercase ml-lg-3" href="/registeruser">Register</a>
+                        @endguest
                     </li>
+
+                    <div class="float-right">
+
+                    </div>
+
 
                 </ul>
             </div> <!-- .navbar-collapse -->
