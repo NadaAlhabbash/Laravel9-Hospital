@@ -13,8 +13,8 @@
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">Nada Alhabbash</h5>
-                        <span>1910213599</span>
+                        <h5 class="mb-0 font-weight-normal">{{Auth::user()->name}}</h5>
+                        <span>  <a class="text-uppercase text-small" href="/logoutuser">Log Out</a></span>
                     </div>
                 </div>
                </div>
@@ -62,24 +62,7 @@
                 <span class="menu-title">FAQ</span>
             </a>
         </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <span class="menu-icon">
-                <i class="mdi mdi-security"></i>
-              </span>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                </ul>
-            </div>
-        </li>
+
         <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('admin.setting')}}">
               <span class="menu-icon">

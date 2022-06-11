@@ -29,6 +29,6 @@
 @if($errors->any())
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">x</button>
-        Check the fpllowing errors :(
+        Check the following errors :(
     </div>
 @endif

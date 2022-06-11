@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="{{asset('adminasset')}}/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('adminasset')}}/images/favicon.png" />
+
+
+
+
     @yield("head")
 </head>
 <body class="container-scroller">
