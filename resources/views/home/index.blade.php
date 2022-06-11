@@ -21,11 +21,15 @@
     <div class="page-section bg-light">
         <div class="container">
             <h1 class="text-center wow fadeInUp">Policlinics</h1>
+
             <div class="row mt-5">
                 @foreach($policlinicList as $rs)
                 <div class="col-lg-4 py-2 wow zoomIn">
                     <div class="card-blog">
                         <div class="header">
+                            @php
+                                $average=$rs->comment->average('rate');
+                            @endphp
 {{--                            <div class="post-category">--}}
 {{--                                <a href="#">Covid19</a>--}}
 {{--                            </div>--}}
@@ -37,10 +41,10 @@
                             <h5 class="post-title"><a href="{{route('policlinic',['id'=>$rs->id])}}">{{$rs->title}}</a></h5>
                             <div class="site-info">
                                 <div class="avatar mr-2">
-                                    <div class="avatar-img">
-                                        <img src="{{asset('assets')}}/img/person/person_1.jpg" alt="">
-                                    </div>
-{{--                                    <span>Roger Adams</span>--}}
+{{--                                    <div class="avatar-img">--}}
+{{--                                        <img src="{{asset('assets')}}/img/person/person_1.jpg" alt="">--}}
+{{--                                    </div>--}}
+                                    <span>{{number_format($average,1)}}</span>
                                 </div>
 {{--                                <span class="mai-time"></span> 1 week ago--}}
                             </div>
@@ -49,9 +53,9 @@
                 </div>
                 @endforeach
 
-                <div class="col-12 text-center mt-4 wow zoomIn">
-                    <a href="blog.html" class="btn btn-primary">Show More</a>
-                </div>
+{{--                <div class="col-12 text-center mt-4 wow zoomIn">--}}
+{{--                    <a href="blog.html" class="btn btn-primary">Show More</a>--}}
+{{--                </div>--}}
 
             </div>
         </div>

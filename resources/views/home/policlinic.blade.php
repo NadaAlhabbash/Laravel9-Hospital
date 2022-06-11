@@ -28,6 +28,19 @@
                         </ol>
                     </nav>
                 </div>
+                @php
+                    $average=$data->comment->average('rate');
+                @endphp
+                <div class="col-lg-8">
+                    <nav aria-label="Breadcrumb">
+                        <ol class="breadcrumb bg-transparent py-0 mb-5">
+                            <li class="breadcrumb-item active" aria-current="page">Review(s)</li>
+                            <li class="breadcrumb-item active " aria-current="page">{{$data->comment->count('id')}}</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{number_format($average,1)}}</li>
+                        </ol>
+                    </nav>
+                </div>
+
             </div>
                 @include('home.messages')<!-- .row -->
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -77,7 +90,7 @@
                         <nav>
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Comment</a>
-                                <a class="nav-item nav-link" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review" aria-selected="false">Review</a>
+                                <a class="nav-item nav-link" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review" aria-selected="false">Review({{$data->comment->count('id')}})</a>
                             </div>
                         </nav>
                         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
