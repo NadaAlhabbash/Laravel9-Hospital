@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\MessageController;
+use App\Http\Controllers\AdminPanel\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
@@ -122,5 +123,14 @@ Route::prefix('admin')->name('admin.')->group(function (){
         Route::get('/delete/{id}','destroy')->name('delete');
         Route::get('/show/{id}','show')->name('show');
 
+    });
+
+    //************************ADMIN COMMENT ROUTES**********************
+    Route::prefix('/comment')->name('comment.')->controller(CommentController::class)->group(function (){
+
+        Route::get('/','index')->name('index');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/delete/{id}','destroy')->name('delete');
     });
 });

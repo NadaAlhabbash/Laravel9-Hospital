@@ -83,7 +83,7 @@ class HomeController extends Controller
         $data->ip = $request->ip();
         $data->save();
 
-        return redirect()->route(  'contact')->with('info', 'Your message has been sent, Thank you.');
+        return redirect()->route(  'contact')->with('success', 'Your message has been sent, Thank you.');
     }
 
     public function storecomment(Request $request)
@@ -98,16 +98,18 @@ class HomeController extends Controller
         $data->ip = $request->ip();
         $data->save();
 
-        return redirect()->route(  'policlinic',['id'=> $request->input('product_id')])->with('info', 'Your comment has been sent, Thank you.');
+        return redirect()->route(  'policlinic',['id'=> $request->input('policlinic_id')])->with('info', 'Your comment has been sent, Thank you.');
     }
 
     public function policlinic($id)
     {
         $images=DB::table('images')->where('policlinic_id', $id)->get();
         $data=Policlinic::find($id);
+        $reviews=Comment::where('policlinic_id',$id)->where('status','True')->get();
         return view('home.policlinic', [
             'data'=>$data,
-            'images'=>$images
+            'images'=>$images,
+            'reviews'=>$reviews
         ]);
     }
     public function categorypoliclinic($id)

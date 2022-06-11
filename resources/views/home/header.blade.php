@@ -1,3 +1,10 @@
+@section('head')
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+@endsection
+
 <header>
     <div class="topbar">
         <div class="container">
@@ -47,9 +54,6 @@
                         <a class="nav-link" href="{{route('home')}}">Home</a>
                     </li>
 
-
-
-
                     <div class="dropdown nav-item">
                         <a id="dLabel" class="nav-link dropdown-toggle" data-toggle="dropdown"  href="/page.html" aria-haspopup="true" aria-expanded="false">
                             Category
@@ -68,9 +72,9 @@
                             @endforeach
 
                         </ul>
-                        @if(count($rs->children))
-                            @include('home.categorytree',['children'=>$rs->children])
-                        @endif
+{{--                        @if(count($rs->children))--}}
+{{--                            @include('home.categorytree',['children'=>$rs->children])--}}
+{{--                        @endif--}}
                     </div>
 
 
