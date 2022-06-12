@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPanel\AdminUserController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\AdminPanel\CommentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
@@ -66,13 +67,21 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-    //************************ADMIN PANEL ROUTES**********************
 
-Route::middleware('admin')->prefix('admin')->name('admin.')->group(function (){
+//************************USER AUTH CONTROL*********************
+Route::middleware('auth')->group(function (){
+
+    //************************USER ROUTES**********************
+    Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function (){
+
+        Route::get('/','index')->name('index');
+    });
+
+        //************************ADMIN PANEL ROUTES**********************
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function (){
     Route::get('/',[AdminHomeController::class,'index'])->name('index');
 
     //************************GENERAL ROUTES**********************
-
     Route::get('/setting',[AdminHomeController::class,'setting'])->name('setting');
     Route::post('/setting',[AdminHomeController::class,'settingupdate'])->name('setting.update');
 
@@ -151,4 +160,5 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function (){
         Route::post('/addrole/{id}','addrole')->name('addrole');
         Route::get('/destroyrole/{uid}/{rid}','destroyrole')->name('destroyrole');
     });
+  });
 });

@@ -48,7 +48,6 @@
 @include("home.header")
 
 
-
 @section('sidebar')
 @show
     @section('slider')

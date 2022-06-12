@@ -98,7 +98,7 @@
                     <li class="nav-item">
                         @auth()
                         <div class="align-middle active">
-                            <strong class="text-uppercase "><i class="mai-person ">{{Auth::user()->name}}</i></strong>
+                            <strong class="text-uppercase "><a href="{{route('userpanel.index')}}"> <i class="mai-person ">{{Auth::user()->name}}</i></a></strong>
                         </div>
                             <a class="text-uppercase text-small" href="/logoutuser">Log Out</a>
                         @endauth
