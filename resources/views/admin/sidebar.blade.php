@@ -64,6 +64,15 @@
         </li>
 
         <li class="nav-item menu-items">
+            <a class="nav-link" href="/admin/user">
+              <span class="menu-icon">
+                <i class="mdi mdi-account"></i>
+              </span>
+                <span class="menu-title">User</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('admin.setting')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-settings"></i>
