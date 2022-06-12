@@ -1,7 +1,7 @@
 
 @extends('layouts.adminwindow')
 
-@section('title', 'User Detail :'.$data->title)
+@section('title', 'User Detail '.$data->title)
 
 
 @section('content')
@@ -9,10 +9,10 @@
         <div class="main-panel">
                  <div class="content-wrapper">
                      <div class="page-header">
-                         <h3 class="page-title"> Show Message : {{$data->title}} </h3>
+                         <h3 class="page-title"> User Date : {{$data->name}} </h3>
                          <nav aria-label="breadcrumb">
                              <ol class="breadcrumb">
-                                 <li class="breadcrumb-item"><a href="{{route('admin.message.index')}}">Message</a></li>
+                                 <li class="breadcrumb-item"><a href="{{route('admin.user.index')}}">Users List</a></li>
 
                                  <li class="breadcrumb-item active"  aria-current="page"><a href="{{route('admin.index')}}">Home</a></li>
                              </ol>
@@ -48,20 +48,20 @@
                                          <td>
                                              @foreach($data->roles as $role)
                                                  {{$role->name}}
-                                                 <a class="btn btn-danger btn-rounded " href="{{route('admin.user.destroyrole',['uid'=>$data->id,'rid'=>$role->id])}}"
+                                                 <a  href="{{route('admin.user.destroyrole',['uid'=>$data->id,'rid'=>$role->id])}}"
                                                     onclick="return confirm('Deleting !! Are you sure?')">[x]</a>
                                              @endforeach
                                          </td>
                                      </tr>
                                      <tr >
-{{--                                     <tr >--}}
-{{--                                         <th> Created Date </th>--}}
-{{--                                         <td> {{$data->created_at}} </td>--}}
-{{--                                     </tr>--}}
-{{--                                     <tr >--}}
-{{--                                         <th> Updated Date </th>--}}
-{{--                                         <td> {{$data->updated_at}} </td>--}}
-{{--                                     </tr>--}}
+                                     <tr >
+                                         <th> Created Date </th>
+                                         <td> {{$data->created_at}} </td>
+                                     </tr>
+                                     <tr >
+                                         <th> Updated Date </th>
+                                         <td> {{$data->updated_at}} </td>
+                                     </tr>
                                      <tr >
                                          <th> Add Role to User </th>
                                          <td>
@@ -69,9 +69,8 @@
                                                  @csrf
                                                  <select name="role_id">
                                                      @foreach($roles as $role)
-                                                         {{$role->name}}
+                                                         <option value="{{$role->id}}">{{$role->name}}</option>
                                                      @endforeach
-                                                     <option value="{{$role->id}}">{{$role->name}}</option>
                                                  </select>
                                            <div class="card-footer">
                                                <button type="submit" class="btn btn-primary me-2">Add Role</button>

@@ -72,7 +72,7 @@ class AdminUserController extends Controller
     {
         $data=new RoleUser();
         $data->user_id =$id;
-        $data->user_id =$request->role_id;;
+        $data->role_id =$request->role_id;;
         $data->save();
         return redirect(route('admin.user.show',['id'=>$data]));
     }
@@ -114,13 +114,13 @@ class AdminUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $uid
      * @return \Illuminate\Http\Response
      */
     public function destroyrole($uid,$rid)
     {
         $user= User::find($uid);
-        $user->roles()->detach($rid);
+        $user->roles()->detach($rid); #Many to Many Relaton Delete Related Data
         return redirect(route('admin.user.show',['id'=>$uid]));
     }
 }
