@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Faq;
@@ -149,6 +150,25 @@ class HomeController extends Controller
         return back()->withErrors([
             'error' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+
+    public function makeappointment (Request $request){
+
+//        dd($request);
+        $data = new Appointment();
+        $data->user_id =Auth::id();
+        $data->policlinic_id = $request->input('policlinic_id');
+        $data->doctor_id = $request->input('doctor_id');
+        $data->date = $request->input( 'date');
+        $data->time = $request->input( 'time');
+        $data->price = $request->input( 'price');
+        $data->payment = $request->input( 'payment');
+        $data->ip = $request->input( 'ip');
+        $data->note = $request->input( 'note');
+        $data->save();
+
+        return redirect('/')->with('success', 'Your comment has been sent, Thank you.');
+
     }
 
 

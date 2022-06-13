@@ -55,6 +55,22 @@
             </a>
         </li>
         <li class="nav-item menu-items">
+            <a class="nav-link" href="{{route('admin.comment.index')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-comment"></i>
+              </span>
+                <span class="menu-title">Comments</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{route('admin.appointment.index')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-view-list"></i>
+              </span>
+                <span class="menu-title">Waiting List</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('admin.faq.index')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-frequently-asked-questions"></i>

@@ -128,7 +128,7 @@
                                             @auth
                                                 <input type="submit"  value="Submit">
                                             @else
-                                                <a href="/login" class=" primary-btn"> For submit your comment, please login </a>
+                                                <a href="/loginuser" class=" primary-btn"> For submit your comment, please login </a>
                                             @endauth
                                         </div>
                                     </form>

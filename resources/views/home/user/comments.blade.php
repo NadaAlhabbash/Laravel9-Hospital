@@ -52,7 +52,6 @@
 
                                     <td><a class="btn btn-danger btn-rounded " href="{{route('userpanel.commentdelete',['id'=>$rs->id])}}"
                                            onclick="return confirm('Deleting !! Are you sure?')">Delete</a> </td>
-
                                 </tr>
                             @endforeach
                             </tbody>

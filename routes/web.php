@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanel\AdminUserController;
+use App\Http\Controllers\AdminPanel\AppointmentController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\AdminPanel\CommentController;
@@ -44,6 +45,8 @@ Route::view('/registeruser', 'home.register')->name('registeruser');;
 Route::get('/logoutuser', [HomeController::class,'logout'])->name('logoutuser');
 Route::view('/loginadmin', 'admin.login')->name('loginadmin');;
 Route::post('/loginadmincheck', [HomeController::class,'loginadmincheck'])->name('loginadmincheck');
+Route::post('/makeappointment',[HomeController::class,'makeappointment'])->name('makeappointment');
+
 
 //4- Route-> Controller->View
 //Route::get('/test',[HomeController::class,'test'])->name('home');
@@ -151,6 +154,15 @@ Route::middleware('auth')->group(function (){
         Route::post('/update/{id}','update')->name('update');
         Route::get('/delete/{id}','destroy')->name('delete');
     });
+
+        //************************ADMIN APPOINTMENT ROUTES**********************
+        Route::prefix('/appointment')->name('appointment.')->controller(AppointmentController::class)->group(function (){
+
+            Route::get('/','index')->name('index');
+            Route::get('/show/{id}','show')->name('show');
+            Route::post('/update/{id}','update')->name('update');
+            Route::get('/delete/{id}','destroy')->name('delete');
+        });
 
     //************************ADMIN USER ROUTES**********************
     Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function (){

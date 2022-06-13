@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
-use App\Models\Comment;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class AppointmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $data=Comment::all();
+        $data=Appointment::all();
 //        dd($data);
-        return view('admin.comment.index',[
+        return view('admin.appointment.index',[
             'data'=>$data
         ]);
     }
@@ -51,8 +51,8 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        $data=Comment::find($id);
-        return view('admin.comment.show',[
+        $data=Appointment::find($id);
+        return view('admin.appointment.show',[
             'data'=>$data
         ]);
     }
@@ -77,10 +77,11 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=Comment::find($id);
+        $data=Appointment::find($id);
         $data->status =$request->status;
         $data->save();
         return redirect(route('admin.comment.show',['id'=>$data]));
+
     }
 
     /**
@@ -91,8 +92,8 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        $data= Comment::find($id);
+        $data= Appointment::find($id);
         $data->delete();
-        return redirect(route('admin.comment.index'));
+        return redirect(route('admin.appointment.index'));
     }
 }

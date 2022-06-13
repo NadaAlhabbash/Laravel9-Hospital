@@ -36,7 +36,6 @@
                             <h3 class="sidebar-title">User Menu</h3>
                             @include('home.user.usermenu')
                         </div>
-
                     </div>
                 </div>
             </div> <!-- .row -->
